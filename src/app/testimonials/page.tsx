@@ -1,90 +1,95 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Star, Quote } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Star, Quote } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TestimonialSubmissionForm } from "@/components/testimonial-submission-form"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TestimonialSubmissionForm } from "@/components/testimonial-submission-form";
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Priya Sharma",
     role: "Homeowner",
-    location: "Craftsville, CA",
+    location: "Kothrud, Pune",
     rating: 5,
     content:
-      "The custom dining table that Artisan Woodcraft created for our home is absolutely stunning. The attention to detail and craftsmanship is exceptional. It's become the centerpiece of our home and we receive compliments from everyone who visits.",
+      "The custom dining table that Ganesh Thakur created for our home is absolutely stunning. The attention to detail and craftsmanship is exceptional. It's become the centerpiece of our home and we receive compliments from everyone who visits. His team's dedication is remarkable.",
     image: "/images/person.jpg?height=100&width=100",
-    project: "Custom Walnut Dining Table",
+    project: "Custom Teak Dining Table",
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Rajesh Patil",
     role: "Interior Designer",
-    location: "Metropolitan Design Studio",
+    location: "Deccan Gymkhana, Pune",
     rating: 5,
     content:
-      "I've worked with many carpenters over my 15 years as an interior designer, and Artisan Woodcraft stands out for their precision, reliability, and artistic vision. They don't just execute plans – they enhance them with their expertise.",
+      "I've worked with many carpenters over my 15 years as an interior designer, and Ganesh Thakur stands out for his precision, reliability, and artistic vision. He doesn't just execute plans – he enhances them with his expertise and deep understanding of wood.",
     image: "/images/person.jpg?height=100&width=100",
     project: "Multiple Residential Projects",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
+    name: "Amit Kulkarni",
     role: "Restaurant Owner",
-    location: "Harvest Table Restaurant",
+    location: "FC Road, Pune",
     rating: 5,
     content:
-      "When we needed custom tables and a bar for our new restaurant, Artisan Woodcraft delivered beyond our expectations. The pieces are not only beautiful but have withstood heavy daily use for years. Worth every penny.",
+      "When we needed custom tables and a bar for our new restaurant, Ganesh Thakur delivered beyond our expectations. The pieces are not only beautiful but have withstood heavy daily use for years. His team's work ethic is incredible. Worth every rupee.",
     image: "/images/person.jpg?height=100&width=100",
     project: "Restaurant Furnishings",
   },
   {
     id: 4,
-    name: "David Thompson",
+    name: "Sneha Joshi",
     role: "Homeowner",
-    location: "Coastal Heights",
+    location: "Baner, Pune",
     rating: 5,
     content:
-      "John and his team transformed our outdated kitchen into a stunning space with custom cabinetry that maximizes every inch. The craftsmanship is impeccable, and the attention to detail is evident in every drawer and door.",
+      "Ganesh and his team transformed our outdated kitchen into a stunning space with custom cabinetry that maximizes every inch. The craftsmanship is impeccable, and the attention to detail is evident in every drawer and door. His 20+ years of experience truly shows.",
     image: "/images/person.jpg?height=100&width=100",
     project: "Kitchen Renovation",
   },
   {
     id: 5,
-    name: "Jennifer Williams",
+    name: "Vikram Desai",
     role: "Office Manager",
-    location: "Innovate Tech Inc.",
+    location: "Hinjewadi, Pune",
     rating: 4,
     content:
-      "Our custom conference table and reception desk have completely elevated our office space. Clients are always impressed by the quality and design. The team was professional throughout the entire process.",
+      "Our custom conference table and reception desk have completely elevated our office space. Clients are always impressed by the quality and design. Ganesh's team was professional throughout the entire process and delivered on time.",
     image: "/images/person.jpg?height=100&width=100",
     project: "Office Furniture",
   },
   {
     id: 6,
-    name: "Robert Garcia",
+    name: "Anita Gokhale",
     role: "Homeowner",
-    location: "Hillside Estates",
+    location: "Pune Cantonment",
     rating: 5,
     content:
-      "The built-in bookshelves and entertainment center that Artisan Woodcraft designed for our living room are perfect. They understood exactly what we wanted and delivered a beautiful, functional piece that looks like it was always part of the house.",
+      "The built-in bookshelves and entertainment center that Ganesh Thakur designed for our living room are perfect. He understood exactly what we wanted and delivered a beautiful, functional piece that looks like it was always part of the house. Truly a master craftsman.",
     image: "/images/person.jpg?height=100&width=100",
     project: "Built-in Cabinetry",
   },
-]
+];
 
 export default function TestimonialsPage() {
   return (
-    <div className="
-     px-4 py-12 md:px-6 md:py-16 lg:py-20">
+    <div
+      className="
+     px-4 py-12 md:px-6 md:py-16 lg:py-20"
+    >
       <div className="mb-10">
-        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Client Testimonials</h1>
+        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Client Testimonials
+        </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Don&apos;t just take our word for it. Hear what our clients have to say about their experience working with Artisan
-          Woodcraft.
+          Don&apos;t just take our word for it. Hear what our clients have to
+          say about their experience working with Ganesh Thakur and his team of
+          skilled craftsmen.
         </p>
       </div>
 
@@ -98,7 +103,11 @@ export default function TestimonialsPage() {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    className={`h-5 w-5 ${star <= 4 ? "fill-amber-500 text-amber-500" : "fill-amber-500 text-amber-500"}`}
+                    className={`h-5 w-5 ${
+                      star <= 4
+                        ? "fill-amber-500 text-amber-500"
+                        : "fill-amber-500 text-amber-500"
+                    }`}
                   />
                 ))}
               </div>
@@ -114,13 +123,17 @@ export default function TestimonialsPage() {
           <Card className="bg-amber-50">
             <CardContent className="flex flex-col items-center p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-amber-700">98%</div>
-              <p className="text-sm text-muted-foreground">Would Recommend Us</p>
+              <p className="text-sm text-muted-foreground">
+                Would Recommend Us
+              </p>
             </CardContent>
           </Card>
           <Card className="bg-amber-50">
             <CardContent className="flex flex-col items-center p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-amber-700">20+</div>
-              <p className="text-sm text-muted-foreground">Years of Excellence</p>
+              <p className="text-sm text-muted-foreground">
+                Years of Excellence
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -128,7 +141,9 @@ export default function TestimonialsPage() {
 
       {/* Featured Testimonials */}
       <section className="mb-16">
-        <h2 className="mb-8 font-serif text-3xl font-bold">Featured Testimonials</h2>
+        <h2 className="mb-8 font-serif text-3xl font-bold">
+          Featured Testimonials
+        </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.slice(0, 3).map((testimonial) => (
             <Card key={testimonial.id} className="flex h-full flex-col">
@@ -138,14 +153,18 @@ export default function TestimonialsPage() {
                     <Star
                       key={i}
                       className={`h-5 w-5 ${
-                        i < testimonial.rating ? "fill-amber-500 text-amber-500" : "text-gray-300"
+                        i < testimonial.rating
+                          ? "fill-amber-500 text-amber-500"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
                 </div>
                 <div className="mb-6 flex-1">
                   <Quote className="mb-2 h-8 w-8 text-amber-200" />
-                  <p className="italic text-muted-foreground">{testimonial.content}</p>
+                  <p className="italic text-muted-foreground">
+                    {testimonial.content}
+                  </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative h-12 w-12 overflow-hidden rounded-full">
@@ -158,7 +177,9 @@ export default function TestimonialsPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">{testimonial.name}</h3>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -169,7 +190,9 @@ export default function TestimonialsPage() {
 
       {/* Testimonials by Project Type */}
       <section className="mb-16">
-        <h2 className="mb-8 font-serif text-3xl font-bold">Testimonials by Project Type</h2>
+        <h2 className="mb-8 font-serif text-3xl font-bold">
+          Testimonials by Project Type
+        </h2>
         <Tabs defaultValue="furniture" className="w-full">
           <TabsList className="mb-8 w-full justify-start border-b pb-px">
             <TabsTrigger
@@ -202,12 +225,16 @@ export default function TestimonialsPage() {
                         <Star
                           key={i}
                           className={`h-5 w-5 ${
-                            i < testimonial.rating ? "fill-amber-500 text-amber-500" : "text-gray-300"
+                            i < testimonial.rating
+                              ? "fill-amber-500 text-amber-500"
+                              : "text-gray-300"
                           }`}
                         />
                       ))}
                     </div>
-                    <p className="mb-6 italic text-muted-foreground">{testimonial.content}</p>
+                    <p className="mb-6 italic text-muted-foreground">
+                      {testimonial.content}
+                    </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="relative h-12 w-12 overflow-hidden rounded-full">
@@ -220,7 +247,9 @@ export default function TestimonialsPage() {
                         </div>
                         <div>
                           <h3 className="font-semibold">{testimonial.name}</h3>
-                          <p className="text-sm text-muted-foreground">{testimonial.project}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.project}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -240,12 +269,16 @@ export default function TestimonialsPage() {
                         <Star
                           key={i}
                           className={`h-5 w-5 ${
-                            i < testimonial.rating ? "fill-amber-500 text-amber-500" : "text-gray-300"
+                            i < testimonial.rating
+                              ? "fill-amber-500 text-amber-500"
+                              : "text-gray-300"
                           }`}
                         />
                       ))}
                     </div>
-                    <p className="mb-6 italic text-muted-foreground">{testimonial.content}</p>
+                    <p className="mb-6 italic text-muted-foreground">
+                      {testimonial.content}
+                    </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="relative h-12 w-12 overflow-hidden rounded-full">
@@ -258,7 +291,9 @@ export default function TestimonialsPage() {
                         </div>
                         <div>
                           <h3 className="font-semibold">{testimonial.name}</h3>
-                          <p className="text-sm text-muted-foreground">{testimonial.project}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.project}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -278,12 +313,16 @@ export default function TestimonialsPage() {
                         <Star
                           key={i}
                           className={`h-5 w-5 ${
-                            i < testimonial.rating ? "fill-amber-500 text-amber-500" : "text-gray-300"
+                            i < testimonial.rating
+                              ? "fill-amber-500 text-amber-500"
+                              : "text-gray-300"
                           }`}
                         />
                       ))}
                     </div>
-                    <p className="mb-6 italic text-muted-foreground">{testimonial.content}</p>
+                    <p className="mb-6 italic text-muted-foreground">
+                      {testimonial.content}
+                    </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="relative h-12 w-12 overflow-hidden rounded-full">
@@ -296,7 +335,9 @@ export default function TestimonialsPage() {
                         </div>
                         <div>
                           <h3 className="font-semibold">{testimonial.name}</h3>
-                          <p className="text-sm text-muted-foreground">{testimonial.project}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.project}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -320,13 +361,17 @@ export default function TestimonialsPage() {
                     <Star
                       key={i}
                       className={`h-5 w-5 ${
-                        i < testimonial.rating ? "fill-amber-500 text-amber-500" : "text-gray-300"
+                        i < testimonial.rating
+                          ? "fill-amber-500 text-amber-500"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
                 </div>
                 <div className="mb-6 flex-1">
-                  <p className="italic text-muted-foreground">{testimonial.content}</p>
+                  <p className="italic text-muted-foreground">
+                    {testimonial.content}
+                  </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative h-12 w-12 overflow-hidden rounded-full">
@@ -339,8 +384,12 @@ export default function TestimonialsPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">{testimonial.name}</h3>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.project}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.location}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {testimonial.project}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -352,9 +401,12 @@ export default function TestimonialsPage() {
       {/* Submit a Testimonial */}
       <section className="mb-16 rounded-lg bg-amber-50 p-8">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-6 text-center font-serif text-3xl font-bold">Share Your Experience</h2>
+          <h2 className="mb-6 text-center font-serif text-3xl font-bold">
+            Share Your Experience
+          </h2>
           <p className="mb-8 text-center text-muted-foreground">
-            We value your feedback. If you&apos;ve worked with us, please take a moment to share your experience.
+            We value your feedback. If you&apos;ve worked with us, please take a
+            moment to share your experience.
           </p>
           <TestimonialSubmissionForm />
         </div>
@@ -362,7 +414,9 @@ export default function TestimonialsPage() {
 
       {/* Video Testimonials */}
       <section className="mb-16">
-        <h2 className="mb-8 font-serif text-3xl font-bold">Video Testimonials</h2>
+        <h2 className="mb-8 font-serif text-3xl font-bold">
+          Video Testimonials
+        </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map((i) => (
             <div key={i} className="overflow-hidden rounded-lg bg-gray-100">
@@ -391,7 +445,9 @@ export default function TestimonialsPage() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold">Client Name {i}</h3>
-                <p className="text-sm text-muted-foreground">Project Type {i}</p>
+                <p className="text-sm text-muted-foreground">
+                  Project Type {i}
+                </p>
               </div>
             </div>
           ))}
@@ -405,11 +461,16 @@ export default function TestimonialsPage() {
             Ready to Join Our Satisfied Clients?
           </h2>
           <p className="mt-4 max-w-[600px] text-muted-foreground">
-            Let&apos;s discuss your vision and create something extraordinary together. From concept to completion, we&apos;ll
-            guide you through every step.
+            Let&apos;s discuss your vision and create something extraordinary
+            together. From concept to completion, we&apos;ll guide you through
+            every step.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button asChild size="lg" className="bg-amber-700 hover:bg-amber-800">
+            <Button
+              asChild
+              size="lg"
+              className="bg-amber-700 hover:bg-amber-800"
+            >
               <Link href="/quote">Request a Quote</Link>
             </Button>
             <Button
@@ -424,6 +485,5 @@ export default function TestimonialsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
-

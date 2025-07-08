@@ -1,0 +1,54 @@
+<!-- Wood craft images -->
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background wood texture gradient -->
+  <defs>
+    <radialGradient id="woodGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </radialGradient>
+    <pattern id="woodGrain" patternUnits="userSpaceOnUse" width="100" height="20">
+      <rect width="100" height="20" fill="#8B4513"/>
+      <path d="M0,10 Q25,5 50,10 T100,10" stroke="#654321" stroke-width="1" fill="none"/>
+      <path d="M0,15 Q25,12 50,15 T100,15" stroke="#654321" stroke-width="0.5" fill="none"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#woodGradient)"/>
+  <rect width="1920" height="1080" fill="url(#woodGrain)" opacity="0.3"/>
+  
+  <!-- Workshop scene -->
+  <g transform="translate(960, 540)">
+    <!-- Workbench -->
+    <rect x="-400" y="200" width="800" height="80" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+    
+    <!-- Wood pieces -->
+    <rect x="-300" y="150" width="150" height="50" fill="#DEB887" stroke="#CD853F" stroke-width="1"/>
+    <rect x="-100" y="140" width="200" height="60" fill="#F4A460" stroke="#D2691E" stroke-width="1"/>
+    <rect x="150" y="160" width="120" height="40" fill="#D2691E" stroke="#A0522D" stroke-width="1"/>
+    
+    <!-- Tools -->
+    <g transform="translate(-200, 50)">
+      <!-- Saw -->
+      <rect x="0" y="0" width="80" height="8" fill="#C0C0C0"/>
+      <rect x="-10" y="-5" width="20" height="18" fill="#8B4513"/>
+      <!-- Zigzag pattern for saw teeth -->
+      <path d="M0,8 L8,12 L16,8 L24,12 L32,8 L40,12 L48,8 L56,12 L64,8 L72,12 L80,8" stroke="#A9A9A9" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Hammer -->
+    <g transform="translate(100, 30)">
+      <rect x="0" y="40" width="8" height="60" fill="#8B4513"/>
+      <rect x="-10" y="30" width="28" height="20" fill="#696969"/>
+    </g>
+    
+    <!-- Plane -->
+    <g transform="translate(-50, 80)">
+      <rect x="0" y="0" width="60" height="15" fill="#8B4513"/>
+      <rect x="45" y="-5" width="8" height="25" fill="#C0C0C0"/>
+    </g>
+  </g>
+  
+  <!-- Ambient lighting effect -->
+  <ellipse cx="960" cy="300" rx="600" ry="200" fill="url(#woodGradient)" opacity="0.2"/>
+</svg>

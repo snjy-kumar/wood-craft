@@ -1,9 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Calendar, Clock,   } from 'lucide-react'
+import Image from "next/image";
+import Link from "next/link";
+import { Calendar, Clock } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const events = [
   {
@@ -11,7 +11,7 @@ const events = [
     title: "Woodworking Workshop: Basic Joinery Techniques",
     date: "April 22, 2023",
     time: "10:00 AM - 4:00 PM",
-    location: "Artisan Woodcraft Workshop",
+    location: "Ganesh Thakur Woodcraft Workshop",
     image: "/images/image.avif?height=400&width=600",
     description:
       "Learn the basics of joinery techniques in this hands-on workshop. All materials provided.",
@@ -21,12 +21,12 @@ const events = [
     title: "Open House & Studio Tour",
     date: "May 5, 2023",
     time: "1:00 PM - 5:00 PM",
-    location: "Artisan Woodcraft Workshop",
+    location: "Ganesh Thakur Woodcraft Workshop",
     image: "/images/image.avif?height=400&width=600",
     description:
       "Join us for an open house and tour of our woodworking studio. Meet our team and see our latest projects.",
   },
-]
+];
 
 export default function EventsPage() {
   return (
@@ -36,7 +36,8 @@ export default function EventsPage() {
           Upcoming Events
         </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Join us for workshops, tours, and other events at Artisan Woodcraft.
+          Join us for workshops, tours, and other events at Ganesh Thakur
+          Woodcraft.
         </p>
       </div>
 
@@ -67,7 +68,9 @@ export default function EventsPage() {
                   <span>{event.time}</span>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground">{event.description}</p>
+              <p className="text-sm text-muted-foreground">
+                {event.description}
+              </p>
               <Button asChild className="mt-6 bg-amber-700 hover:bg-amber-800">
                 <Link href={`/events/${event.id}`}>Learn More</Link>
               </Button>
@@ -76,5 +79,5 @@ export default function EventsPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }

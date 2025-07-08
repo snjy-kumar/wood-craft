@@ -1,47 +1,55 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 
 const timelineEvents = [
   {
     year: "2003",
-    title: "Founding of Artisan Woodcraft",
-    description: "John Carpenter established Artisan Woodcraft in a small 500 sq ft workshop.",
+    title: "Founding of Ganesh Thakur Woodcraft",
+    description:
+      "Ganesh Thakur established his woodcraft workshop in Pune with traditional Indian woodworking techniques.",
   },
   {
     year: "2007",
     title: "First Major Commission",
-    description: "Completed a full dining set for the mayor's residence, gaining local recognition.",
+    description:
+      "Completed a full teak dining set for a prominent Pune family, gaining local recognition in Maharashtra.",
   },
   {
     year: "2010",
-    title: "Master Craftsman Certification",
-    description: "John received his Master Craftsman certification from the American Guild of Woodworkers.",
+    title: "Master Craftsman Recognition",
+    description:
+      "Ganesh gained recognition as a master craftsman combining traditional Indian techniques with modern methods.",
   },
   {
     year: "2013",
-    title: "Workshop Expansion",
-    description: "Moved to our current 2,500 sq ft workshop and added two apprentice craftsmen to the team.",
+    title: "Team Expansion",
+    description:
+      "Expanded to current workshop and built a team of 5 skilled craftsmen, all specializing in different aspects of woodworking.",
   },
   {
     year: "2016",
-    title: "Featured in Woodworking Magazine",
-    description: "Our custom walnut conference table was featured on the cover of National Woodworking Magazine.",
+    title: "Featured in Indian Woodcraft Magazine",
+    description:
+      "Our custom rosewood conference table was featured in a leading Indian woodworking publication.",
   },
   {
     year: "2018",
     title: "Best Custom Furniture Award",
-    description: "Won Best Custom Furniture Design at the National Woodworking Exhibition.",
+    description:
+      "Won Best Custom Furniture Design at the National Woodworking Exhibition.",
   },
   {
     year: "2021",
     title: "Sustainable Craftsmanship Award",
-    description: "Recognized for our commitment to sustainable practices and materials.",
+    description:
+      "Recognized for our commitment to sustainable practices and materials.",
   },
   {
     year: "2023",
     title: "20th Anniversary",
-    description: "Celebrated 20 years of craftsmanship with an open house event and workshop tour.",
+    description:
+      "Celebrated 20 years of craftsmanship with an open house event and workshop tour.",
   },
-]
+];
 
 export function Timeline() {
   return (
@@ -54,7 +62,8 @@ export function Timeline() {
         // md:items-start is also common if you prefer top-alignment.
         <div
           key={index}
-          className={`relative flex flex-col md:flex-row md:items-start md:gap-12 ${ // Keeping md:items-start for card alignment
+          className={`relative flex flex-col md:flex-row md:items-start md:gap-12 ${
+            // Keeping md:items-start for card alignment
             index % 2 === 0 ? "md:flex-row-reverse" : ""
           }`}
         >
@@ -66,9 +75,9 @@ export function Timeline() {
           {/* -translate-x-1/2 centers the circle horizontally on the line */}
           {/* z-10 ensures the circle is above the line */}
           <div className="absolute left-[15px] top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform md:left-1/2">
-             <span className="flex h-7 w-7 items-center justify-center rounded-full border-4 border-amber-200 bg-white">
-                <span className="h-2 w-2 rounded-full bg-amber-600"></span>
-             </span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border-4 border-amber-200 bg-white">
+              <span className="h-2 w-2 rounded-full bg-amber-600"></span>
+            </span>
           </div>
 
           {/* Content Side */}
@@ -83,8 +92,12 @@ export function Timeline() {
                 <span className="inline-block rounded bg-amber-100 px-2 py-1 text-sm font-semibold text-amber-800">
                   {event.year}
                 </span>
-                <h3 className="mt-2 font-serif text-lg font-semibold">{event.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{event.description}</p>
+                <h3 className="mt-2 font-serif text-lg font-semibold">
+                  {event.title}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {event.description}
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -94,5 +107,5 @@ export function Timeline() {
         </div>
       ))}
     </div>
-  )
+  );
 }

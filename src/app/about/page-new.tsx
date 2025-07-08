@@ -26,37 +26,30 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Ganesh Thakur&apos;s journey began over two decades ago with a
+              John Carpenter&apos;s journey began over two decades ago with a
               simple passion for working with wood. What started as a hobby in
-              his family workshop has evolved into a renowned woodworking studio
-              creating custom pieces for clients across Pune and Maharashtra.
+              his father&apos;s garage has evolved into a renowned woodworking
+              studio creating custom pieces for clients nationwide.
             </p>
             <p>
-              After completing his formal training in traditional Indian
-              woodworking techniques and modern carpentry methods, Ganesh spent
-              years perfecting his craft under master artisans before
-              establishing his own workshop in Pune in 2003. Today, he leads a
-              dedicated team of 5 skilled craftsmen who share his commitment to
-              excellence.
+              After completing his formal training in fine woodworking at the
+              prestigious American School of Craftsmanship, John spent years
+              honing his skills under master woodworkers before establishing
+              Artisan Woodcraft in 2003.
             </p>
             <p>
               His philosophy is simple: create pieces that combine timeless
               design with uncompromising quality. Each project is approached
               with meticulous attention to detail, from selecting the perfect
-              wood to applying the final finish. The team&apos;s collective 20+
-              years of experience ensures every piece meets the highest
-              standards.
+              wood to applying the final finish.
             </p>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              {
-                icon: CheckCircle,
-                text: "Master Craftsman - Traditional & Modern",
-              },
-              { icon: CheckCircle, text: "20+ Years Experience in Pune" },
-              { icon: Award, text: "Excellence in Indian Woodworking" },
-              { icon: Tool, text: "Team of 5 Skilled Artisans" },
+              { icon: CheckCircle, text: "Master Craftsman Certified" },
+              { icon: CheckCircle, text: "20+ Years Experience" },
+              { icon: Award, text: "Excellence in Woodworking Award" },
+              { icon: Tool, text: "Sustainable Materials Advocate" },
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-3 group">
                 <item.icon className="h-5 w-5 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
@@ -68,7 +61,7 @@ export default function AboutPage() {
         <div className="relative order-1 aspect-square overflow-hidden rounded-xl md:order-2 shadow-2xl">
           <Image
             src="/images/image.avif"
-            alt="Ganesh Thakur, Master Woodworker from Pune"
+            alt="John Carpenter, Master Woodworker"
             fill
             className="object-cover transition-transform hover:scale-105"
           />

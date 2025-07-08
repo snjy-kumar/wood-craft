@@ -1,32 +1,38 @@
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
   {
-    name: "John Carpenter",
-    role: "Master Craftsman",
+    name: "Ganesh Thakur",
+    role: "Master Craftsman & Founder",
     image: "/images/person.jpg?height=200&width=200",
-    bio: "John is the founder of Artisan Woodcraft and a master woodworker with over 20 years of experience.",
+    bio: "Ganesh is the founder and master craftsman with over 20 years of experience in traditional and modern woodworking techniques, leading a team of 5 skilled artisans in Pune.",
   },
   {
-    name: "Sarah Johnson",
-    role: "Design Consultant",
+    name: "Rajesh Patil",
+    role: "Senior Craftsman",
     image: "/images/person.jpg?height=200&width=200",
-    bio: "Sarah is our design consultant, helping clients bring their vision to life with her expertise in interior design.",
+    bio: "Rajesh specializes in traditional joinery and has been working with Ganesh for 8 years, bringing expertise in classical Indian woodworking methods.",
   },
   {
-    name: "Michael Chen",
-    role: "Project Manager",
+    name: "Suresh Jadhav",
+    role: "Design & Carving Specialist",
     image: "/images/person.jpg?height=200&width=200",
-    bio: "Michael is our project manager, ensuring every project is completed on time and to the highest standards.",
+    bio: "Suresh is our design specialist, known for his intricate carving work and ability to bring client visions to life with artistic precision.",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Finishing Specialist",
+    name: "Prakash Desai",
+    role: "Finishing Expert",
     image: "/images/person.jpg?height=200&width=200",
-    bio: "Emily is our finishing specialist, applying the perfect touch to every piece with her expertise in wood finishes.",
+    bio: "Prakash is our finishing expert, applying the perfect touch to every piece with his deep knowledge of wood stains, polishes, and protective finishes.",
   },
-]
+  {
+    name: "Manish Kulkarni",
+    role: "Project Coordinator",
+    image: "/images/person.jpg?height=200&width=200",
+    bio: "Manish coordinates all projects, ensuring timely delivery and quality standards while maintaining clear communication with clients throughout Pune.",
+  },
+];
 
 export default function TeamPage() {
   return (
@@ -36,7 +42,10 @@ export default function TeamPage() {
           Meet Our Team
         </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          The skilled craftspeople behind our exceptional woodworking projects.
+          Meet the skilled craftspeople behind our exceptional woodworking
+          projects. Led by Ganesh Thakur, our team of 5 dedicated artisans
+          brings decades of combined experience in traditional and modern
+          woodworking.
         </p>
       </div>
 
@@ -52,7 +61,9 @@ export default function TeamPage() {
               />
             </div>
             <CardContent className="p-6">
-              <h3 className="mb-2 font-serif text-xl font-semibold">{member.name}</h3>
+              <h3 className="mb-2 font-serif text-xl font-semibold">
+                {member.name}
+              </h3>
               <p className="text-sm text-muted-foreground">{member.role}</p>
               <p className="mt-4 text-sm text-muted-foreground">{member.bio}</p>
             </CardContent>
@@ -60,5 +71,5 @@ export default function TeamPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }

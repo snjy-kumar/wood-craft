@@ -1,20 +1,34 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { CheckCircle } from "lucide-react"
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { CheckCircle } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Card, CardContent } from "@/components/ui/card"
-import { toast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -49,7 +63,7 @@ const formSchema = z.object({
   termsAccepted: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms and conditions.",
   }),
-})
+});
 
 const services = [
   {
@@ -76,10 +90,10 @@ const services = [
     id: "restoration",
     label: "Furniture Restoration",
   },
-]
+];
 
 export default function QuotePage() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -92,19 +106,19 @@ export default function QuotePage() {
       services: [],
       termsAccepted: false,
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
 
     // Simulate form submission
     setTimeout(() => {
-      setIsSubmitted(true)
+      setIsSubmitted(true);
       toast({
         title: "Quote request submitted!",
         description: "We'll get back to you within 1-2 business days.",
-      })
-    }, 1000)
+      });
+    }, 1000);
   }
 
   if (isSubmitted) {
@@ -116,13 +130,20 @@ export default function QuotePage() {
               <CheckCircle className="h-12 w-12 text-green-600" />
             </div>
           </div>
-          <h1 className="mb-4 font-serif text-3xl font-bold">Quote Request Received!</h1>
+          <h1 className="mb-4 font-serif text-3xl font-bold">
+            Quote Request Received!
+          </h1>
           <p className="mb-8 text-muted-foreground">
-            Thank you for your interest in our services. We&apos;ve received your quote request and will review it promptly.
-            A member of our team will contact you within 1-2 business days to discuss your project in detail.
+            Thank you for your interest in our services. We&apos;ve received
+            your quote request and will review it promptly. A member of our team
+            will contact you within 1-2 business days to discuss your project in
+            detail.
           </p>
           <div className="space-y-4">
-            <Button className="w-full bg-amber-700 hover:bg-amber-800" onClick={() => (window.location.href = "/")}>
+            <Button
+              className="w-full bg-amber-700 hover:bg-amber-800"
+              onClick={() => (window.location.href = "/")}
+            >
               Return to Homepage
             </Button>
             <Button
@@ -135,16 +156,19 @@ export default function QuotePage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className=" px-4 py-12 md:px-6 md:py-16 lg:py-20">
       <div className="mb-10">
-        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Request a Quote</h1>
+        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Request a Quote
+        </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Fill out the form below with details about your project, and we&apos;ll get back to you with a custom quote within
-          1-2 business days.
+          Fill out the form below with details about your project, and
+          we&apos;ll get back to you with a custom quote within 1-2 business
+          days.
         </p>
       </div>
 
@@ -153,9 +177,14 @@ export default function QuotePage() {
           <Card>
             <CardContent className="p-6 sm:p-8">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-8"
+                >
                   <div className="space-y-6">
-                    <h2 className="font-serif text-2xl font-semibold">Contact Information</h2>
+                    <h2 className="font-serif text-2xl font-semibold">
+                      Contact Information
+                    </h2>
 
                     <div className="grid gap-6 sm:grid-cols-2">
                       <FormField
@@ -165,7 +194,7 @@ export default function QuotePage() {
                           <FormItem>
                             <FormLabel>Full Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="John Smith" {...field} />
+                              <Input placeholder="Rajesh Kumar" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -179,7 +208,10 @@ export default function QuotePage() {
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                              <Input placeholder="john@example.com" {...field} />
+                              <Input
+                                placeholder="rajesh@example.com"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -195,7 +227,7 @@ export default function QuotePage() {
                           <FormItem>
                             <FormLabel>Phone Number</FormLabel>
                             <FormControl>
-                              <Input placeholder="(555) 123-4567" {...field} />
+                              <Input placeholder="+91 89698 92003" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -212,7 +244,8 @@ export default function QuotePage() {
                               <Input placeholder="City, State" {...field} />
                             </FormControl>
                             <FormDescription>
-                              General location helps us determine if you&apos;re in our service area.
+                              General location helps us determine if you&apos;re
+                              in our service area.
                             </FormDescription>
                             <FormMessage />
                           </FormItem>
@@ -236,19 +269,25 @@ export default function QuotePage() {
                                 <FormControl>
                                   <RadioGroupItem value="email" />
                                 </FormControl>
-                                <FormLabel className="font-normal">Email</FormLabel>
+                                <FormLabel className="font-normal">
+                                  Email
+                                </FormLabel>
                               </FormItem>
                               <FormItem className="flex items-center space-x-3 space-y-0">
                                 <FormControl>
                                   <RadioGroupItem value="phone" />
                                 </FormControl>
-                                <FormLabel className="font-normal">Phone</FormLabel>
+                                <FormLabel className="font-normal">
+                                  Phone
+                                </FormLabel>
                               </FormItem>
                               <FormItem className="flex items-center space-x-3 space-y-0">
                                 <FormControl>
                                   <RadioGroupItem value="either" />
                                 </FormControl>
-                                <FormLabel className="font-normal">Either</FormLabel>
+                                <FormLabel className="font-normal">
+                                  Either
+                                </FormLabel>
                               </FormItem>
                             </RadioGroup>
                           </FormControl>
@@ -259,7 +298,9 @@ export default function QuotePage() {
                   </div>
 
                   <div className="space-y-6">
-                    <h2 className="font-serif text-2xl font-semibold">Project Details</h2>
+                    <h2 className="font-serif text-2xl font-semibold">
+                      Project Details
+                    </h2>
 
                     <FormField
                       control={form.control}
@@ -267,17 +308,28 @@ export default function QuotePage() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Project Type</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
                             <FormControl>
                               <SelectTrigger>
                                 <SelectValue placeholder="Select project type" />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="custom-furniture">Custom Furniture</SelectItem>
-                              <SelectItem value="home-renovation">Home Renovation</SelectItem>
-                              <SelectItem value="commercial">Commercial Project</SelectItem>
-                              <SelectItem value="outdoor">Outdoor Structure</SelectItem>
+                              <SelectItem value="custom-furniture">
+                                Custom Furniture
+                              </SelectItem>
+                              <SelectItem value="home-renovation">
+                                Home Renovation
+                              </SelectItem>
+                              <SelectItem value="commercial">
+                                Commercial Project
+                              </SelectItem>
+                              <SelectItem value="outdoor">
+                                Outdoor Structure
+                              </SelectItem>
                               <SelectItem value="other">Other</SelectItem>
                             </SelectContent>
                           </Select>
@@ -293,7 +345,9 @@ export default function QuotePage() {
                         <FormItem>
                           <div className="mb-4">
                             <FormLabel>Services Needed</FormLabel>
-                            <FormDescription>Select all that apply to your project.</FormDescription>
+                            <FormDescription>
+                              Select all that apply to your project.
+                            </FormDescription>
                           </div>
                           {services.map((service) => (
                             <FormField
@@ -302,20 +356,35 @@ export default function QuotePage() {
                               name="services"
                               render={({ field }) => {
                                 return (
-                                  <FormItem key={service.id} className="flex flex-row items-start space-x-3 space-y-0">
+                                  <FormItem
+                                    key={service.id}
+                                    className="flex flex-row items-start space-x-3 space-y-0"
+                                  >
                                     <FormControl>
                                       <Checkbox
-                                        checked={field.value?.includes(service.id)}
+                                        checked={field.value?.includes(
+                                          service.id
+                                        )}
                                         onCheckedChange={(checked) => {
                                           return checked
-                                            ? field.onChange([...field.value, service.id])
-                                            : field.onChange(field.value?.filter((value) => value !== service.id))
+                                            ? field.onChange([
+                                                ...field.value,
+                                                service.id,
+                                              ])
+                                            : field.onChange(
+                                                field.value?.filter(
+                                                  (value) =>
+                                                    value !== service.id
+                                                )
+                                              );
                                         }}
                                       />
                                     </FormControl>
-                                    <FormLabel className="font-normal">{service.label}</FormLabel>
+                                    <FormLabel className="font-normal">
+                                      {service.label}
+                                    </FormLabel>
                                   </FormItem>
-                                )
+                                );
                               }}
                             />
                           ))}
@@ -331,19 +400,34 @@ export default function QuotePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Budget Range</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Select budget range" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="under-5k">Under $5,000</SelectItem>
-                                <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                                <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                                <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                                <SelectItem value="over-50k">Over $50,000</SelectItem>
-                                <SelectItem value="not-sure">Not sure yet</SelectItem>
+                                <SelectItem value="under-50k">
+                                  Under ₹50,000
+                                </SelectItem>
+                                <SelectItem value="50k-100k">
+                                  ₹50,000 - ₹1,00,000
+                                </SelectItem>
+                                <SelectItem value="100k-250k">
+                                  ₹1,00,000 - ₹2,50,000
+                                </SelectItem>
+                                <SelectItem value="250k-500k">
+                                  ₹2,50,000 - ₹5,00,000
+                                </SelectItem>
+                                <SelectItem value="over-500k">
+                                  Over ₹5,00,000
+                                </SelectItem>
+                                <SelectItem value="not-sure">
+                                  Not sure yet
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -357,18 +441,31 @@ export default function QuotePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Desired Timeline</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Select timeline" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="asap">As soon as possible</SelectItem>
-                                <SelectItem value="1-3-months">1-3 months</SelectItem>
-                                <SelectItem value="3-6-months">3-6 months</SelectItem>
-                                <SelectItem value="6-12-months">6-12 months</SelectItem>
-                                <SelectItem value="flexible">Flexible</SelectItem>
+                                <SelectItem value="asap">
+                                  As soon as possible
+                                </SelectItem>
+                                <SelectItem value="1-3-months">
+                                  1-3 months
+                                </SelectItem>
+                                <SelectItem value="3-6-months">
+                                  3-6 months
+                                </SelectItem>
+                                <SelectItem value="6-12-months">
+                                  6-12 months
+                                </SelectItem>
+                                <SelectItem value="flexible">
+                                  Flexible
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -406,12 +503,13 @@ export default function QuotePage() {
                               type="file"
                               multiple
                               onChange={(e) => {
-                                field.onChange(e.target.files)
+                                field.onChange(e.target.files);
                               }}
                             />
                           </FormControl>
                           <FormDescription>
-                            Upload sketches, inspiration photos, or any reference materials (max 5MB each).
+                            Upload sketches, inspiration photos, or any
+                            reference materials (max 5MB each).
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -425,12 +523,18 @@ export default function QuotePage() {
                     render={({ field }) => (
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                         <FormControl>
-                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel>I agree to the terms and conditions</FormLabel>
+                          <FormLabel>
+                            I agree to the terms and conditions
+                          </FormLabel>
                           <FormDescription>
-                            By submitting this form, you agree to be contacted about your project.
+                            By submitting this form, you agree to be contacted
+                            about your project.
                           </FormDescription>
                         </div>
                         <FormMessage />
@@ -438,7 +542,10 @@ export default function QuotePage() {
                     )}
                   />
 
-                  <Button type="submit" className="w-full bg-amber-700 hover:bg-amber-800">
+                  <Button
+                    type="submit"
+                    className="w-full bg-amber-700 hover:bg-amber-800"
+                  >
                     Submit Quote Request
                   </Button>
                 </form>
@@ -451,13 +558,17 @@ export default function QuotePage() {
           <div className="sticky top-8 space-y-6">
             <Card>
               <CardContent className="p-6">
-                <h3 className="mb-4 font-serif text-xl font-semibold">What to Expect</h3>
+                <h3 className="mb-4 font-serif text-xl font-semibold">
+                  What to Expect
+                </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-amber-600" />
                     <div>
                       <p className="font-medium">Quick Response</p>
-                      <p className="text-sm text-muted-foreground">We&apos;ll contact you within 1-2 business days.</p>
+                      <p className="text-sm text-muted-foreground">
+                        We&apos;ll contact you within 1-2 business days.
+                      </p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -465,7 +576,8 @@ export default function QuotePage() {
                     <div>
                       <p className="font-medium">Detailed Consultation</p>
                       <p className="text-sm text-muted-foreground">
-                        We&apos;ll discuss your project needs and vision in detail.
+                        We&apos;ll discuss your project needs and vision in
+                        detail.
                       </p>
                     </div>
                   </li>
@@ -474,7 +586,8 @@ export default function QuotePage() {
                     <div>
                       <p className="font-medium">Custom Quote</p>
                       <p className="text-sm text-muted-foreground">
-                        You&apos;ll receive a detailed quote based on your specific requirements.
+                        You&apos;ll receive a detailed quote based on your
+                        specific requirements.
                       </p>
                     </div>
                   </li>
@@ -493,7 +606,9 @@ export default function QuotePage() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="mb-4 font-serif text-xl font-semibold">Contact Information</h3>
+                <h3 className="mb-4 font-serif text-xl font-semibold">
+                  Contact Information
+                </h3>
                 <div className="space-y-3">
                   <p className="flex items-center gap-2">
                     <svg
@@ -555,6 +670,5 @@ export default function QuotePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

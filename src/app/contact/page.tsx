@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { MapPin, Mail, Phone, Clock } from "lucide-react"
+import { useState } from "react";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
-  const { toast } = useToast()
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,28 +30,30 @@ export default function ContactPage() {
     budget: "",
     message: "",
     preferredContact: "email",
-  })
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleRadioChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, preferredContact: value }))
-  }
+    setFormData((prev) => ({ ...prev, preferredContact: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
+    e.preventDefault();
+    console.log("Form submitted:", formData);
     toast({
       title: "Message Sent",
       description: "Thank you for contacting us. We'll be in touch soon!",
-    })
+    });
     // Reset form
     setFormData({
       name: "",
@@ -55,16 +63,19 @@ export default function ContactPage() {
       budget: "",
       message: "",
       preferredContact: "email",
-    })
-  }
+    });
+  };
 
   return (
     <div className=" px-4 py-12 md:px-6 md:py-16 lg:py-20">
       <div className="mb-10">
-        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Contact Us</h1>
+        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Contact Us
+        </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Have a project in mind or questions about our services? We&apos;d love to hear from you. Fill out the form below or
-          use our contact information to get in touch.
+          Have a project in mind or questions about our services? We&apos;d love
+          to hear from you. Fill out the form below or use our contact
+          information to get in touch.
         </p>
       </div>
 
@@ -81,7 +92,7 @@ export default function ContactPage() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Smith"
+                      placeholder="Rajesh Kumar"
                       required
                     />
                   </div>
@@ -93,7 +104,7 @@ export default function ContactPage() {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder="rajesh@example.com"
                       required
                     />
                   </div>
@@ -108,22 +119,30 @@ export default function ContactPage() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(555) 123-4567"
+                      placeholder="+91 89698 92003"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="projectType">Project Type</Label>
                     <Select
                       value={formData.projectType}
-                      onValueChange={(value) => handleSelectChange("projectType", value)}
+                      onValueChange={(value) =>
+                        handleSelectChange("projectType", value)
+                      }
                     >
                       <SelectTrigger id="projectType">
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="custom-furniture">Custom Furniture</SelectItem>
-                        <SelectItem value="kitchen-renovation">Kitchen Renovation</SelectItem>
-                        <SelectItem value="bathroom-renovation">Bathroom Renovation</SelectItem>
+                        <SelectItem value="custom-furniture">
+                          Custom Furniture
+                        </SelectItem>
+                        <SelectItem value="kitchen-renovation">
+                          Kitchen Renovation
+                        </SelectItem>
+                        <SelectItem value="bathroom-renovation">
+                          Bathroom Renovation
+                        </SelectItem>
                         <SelectItem value="outdoor">Outdoor Project</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
@@ -133,16 +152,29 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="budget">Budget Range</Label>
-                  <Select value={formData.budget} onValueChange={(value) => handleSelectChange("budget", value)}>
+                  <Select
+                    value={formData.budget}
+                    onValueChange={(value) =>
+                      handleSelectChange("budget", value)
+                    }
+                  >
                     <SelectTrigger id="budget">
                       <SelectValue placeholder="Select budget range" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="under-5000">Under $5,000</SelectItem>
-                      <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                      <SelectItem value="10000-25000">$10,000 - $25,000</SelectItem>
-                      <SelectItem value="25000-50000">$25,000 - $50,000</SelectItem>
-                      <SelectItem value="over-50000">Over $50,000</SelectItem>
+                      <SelectItem value="under-50000">Under ₹50,000</SelectItem>
+                      <SelectItem value="50000-100000">
+                        ₹50,000 - ₹1,00,000
+                      </SelectItem>
+                      <SelectItem value="100000-250000">
+                        ₹1,00,000 - ₹2,50,000
+                      </SelectItem>
+                      <SelectItem value="250000-500000">
+                        ₹2,50,000 - ₹5,00,000
+                      </SelectItem>
+                      <SelectItem value="over-500000">
+                        Over ₹5,00,000
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -182,7 +214,10 @@ export default function ContactPage() {
                   </RadioGroup>
                 </div>
 
-                <Button type="submit" className="w-full bg-amber-700 hover:bg-amber-800 sm:w-auto">
+                <Button
+                  type="submit"
+                  className="w-full bg-amber-700 hover:bg-amber-800 sm:w-auto"
+                >
                   Send Message
                 </Button>
               </form>
@@ -193,16 +228,20 @@ export default function ContactPage() {
         <div className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h2 className="mb-4 font-serif text-2xl font-semibold">Contact Information</h2>
+              <h2 className="mb-4 font-serif text-2xl font-semibold">
+                Contact Information
+              </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-5 w-5 text-amber-700" />
                   <div>
                     <p className="font-medium">Address</p>
                     <p className="text-muted-foreground">
-                      123 Woodworking Lane
+                      Ganesh Thakur Woodcraft Workshop
                       <br />
-                      Craftsville, CA 90210
+                      Kothrud, Pune, Maharashtra 411038
+                      <br />
+                      India
                     </p>
                   </div>
                 </div>
@@ -210,14 +249,16 @@ export default function ContactPage() {
                   <Phone className="mt-1 h-5 w-5 text-amber-700" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">(555) 123-4567</p>
+                    <p className="text-muted-foreground">+91 8969892003</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="mt-1 h-5 w-5 text-amber-700" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">info@artisanwoodcraft.com</p>
+                    <p className="text-muted-foreground">
+                      ganeshthakur@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -239,7 +280,9 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="p-6">
-              <h2 className="mb-4 font-serif text-2xl font-semibold">Workshop Location</h2>
+              <h2 className="mb-4 font-serif text-2xl font-semibold">
+                Workshop Location
+              </h2>
               <div className="aspect-video overflow-hidden rounded-md bg-muted">
                 {/* This would be replaced with an actual map component */}
                 <div className="flex h-full items-center justify-center bg-amber-100 p-4 text-center">
@@ -251,6 +294,5 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

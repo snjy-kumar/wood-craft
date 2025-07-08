@@ -1,0 +1,46 @@
+<!-- Workshop/Woodworking Image -->
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#2D1810"/>
+  
+  <!-- Workshop wall -->
+  <rect x="0" y="0" width="800" height="300" fill="#3A251A"/>
+  
+  <!-- Workbench -->
+  <rect x="50" y="350" width="700" height="100" fill="#8B4513"/>
+  <rect x="50" y="440" width="700" height="20" fill="#654321"/>
+  
+  <!-- Wood pieces on bench -->
+  <rect x="100" y="300" width="150" height="50" fill="#DEB887" stroke="#CD853F" stroke-width="2"/>
+  <rect x="300" y="280" width="200" height="70" fill="#F4A460" stroke="#D2691E" stroke-width="2"/>
+  <rect x="550" y="320" width="120" height="30" fill="#D2691E" stroke="#A0522D" stroke-width="2"/>
+  
+  <!-- Tools hanging on wall -->
+  <g transform="translate(150, 100)">
+    <!-- Saw -->
+    <rect x="0" y="0" width="80" height="8" fill="#C0C0C0"/>
+    <rect x="-10" y="-5" width="20" height="18" fill="#8B4513"/>
+    <path d="M0,8 L8,12 L16,8 L24,12 L32,8 L40,12 L48,8 L56,12 L64,8 L72,12 L80,8" stroke="#A9A9A9" stroke-width="2" fill="none"/>
+  </g>
+  
+  <g transform="translate(400, 80)">
+    <!-- Hammer -->
+    <rect x="0" y="40" width="8" height="60" fill="#8B4513"/>
+    <rect x="-10" y="30" width="28" height="20" fill="#696969"/>
+  </g>
+  
+  <g transform="translate(600, 120)">
+    <!-- Chisel -->
+    <rect x="0" y="0" width="6" height="50" fill="#8B4513"/>
+    <polygon points="0,0 6,0 4,10 2,10" fill="#C0C0C0"/>
+  </g>
+  
+  <!-- Workshop lighting -->
+  <ellipse cx="400" cy="150" rx="300" ry="100" fill="#FFD700" opacity="0.2"/>
+  
+  <!-- Wood shavings on floor -->
+  <circle cx="200" cy="500" r="3" fill="#DEB887"/>
+  <circle cx="350" cy="520" r="2" fill="#F4A460"/>
+  <circle cx="500" cy="510" r="4" fill="#CD853F"/>
+  <circle cx="600" cy="530" r="2" fill="#DEB887"/>
+</svg>

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Star } from 'lucide-react'
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,10 +15,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/hooks/use-toast"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -34,11 +34,11 @@ const formSchema = z.object({
   testimonial: z.string().min(10, {
     message: "Testimonial must be at least 10 characters.",
   }),
-})
+});
 
 export default function TestimonialSubmissionPage() {
-  const [rating, setRating] = useState(0)
-  const [hoveredRating, setHoveredRating] = useState(0)
+  const [rating, setRating] = useState(0);
+  const [hoveredRating, setHoveredRating] = useState(0);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,17 +49,18 @@ export default function TestimonialSubmissionPage() {
       rating: 0,
       testimonial: "",
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     toast({
       title: "Thank you for your testimonial!",
-      description: "Your feedback has been submitted and will be reviewed shortly.",
-    })
-    
-    console.log(values)
-    form.reset()
-    setRating(0)
+      description:
+        "Your feedback has been submitted and will be reviewed shortly.",
+    });
+
+    console.log(values);
+    form.reset();
+    setRating(0);
   }
 
   return (
@@ -69,7 +70,7 @@ export default function TestimonialSubmissionPage() {
           Submit a Testimonial
         </h1>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Share your experience working with Artisan Woodcraft and help us
+          Share your experience working with Ganesh Thakur Woodcraft and help us
           improve our services.
         </p>
       </div>
@@ -142,8 +143,8 @@ export default function TestimonialSubmissionPage() {
                           onMouseEnter={() => setHoveredRating(star)}
                           onMouseLeave={() => setHoveredRating(0)}
                           onClick={() => {
-                            setRating(star)
-                            field.onChange(star)
+                            setRating(star);
+                            field.onChange(star);
                           }}
                         />
                       ))}
@@ -176,12 +177,15 @@ export default function TestimonialSubmissionPage() {
               )}
             />
 
-            <Button type="submit" className="w-full bg-amber-700 hover:bg-amber-800">
+            <Button
+              type="submit"
+              className="w-full bg-amber-700 hover:bg-amber-800"
+            >
               Submit Testimonial
             </Button>
           </form>
         </Form>
       </div>
     </div>
-  )
+  );
 }
